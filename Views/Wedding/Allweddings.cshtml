@@ -1,0 +1,27 @@
+@using WeddingPlanner.Models;
+@model List<Wedding>;
+
+
+<h1>All Weddings Here</h1>
+<a asp-action="Addwedding" asp-controller="Wedding"><button>Add New Wedding</button></a><br>
+<a asp-controller="LoginReg" asp-action="Logout"><button>Logout</button></a>
+
+<table style="width:75%;">
+    <tr>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>RSVP</th>
+    </tr>
+    @{
+        foreach(var i in Model)
+        {
+            <tr>
+                <td><a href="/viewwedding/@i.weddingId">@i.person1 & @i.person2 </a></td>
+                <td>@i.date </td>
+                <td></td>
+                <td><a href="/rsvp/@i.weddingId"><button>RSVP</button></a></td>
+            </tr>
+        }
+    }
+</table>

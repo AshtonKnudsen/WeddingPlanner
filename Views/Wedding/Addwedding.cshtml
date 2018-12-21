@@ -1,0 +1,18 @@
+@using WeddingPlanner.Models;
+@model Wedding;
+
+<h1>Add New Wedding</h1>
+<a asp-action="Allweddings" asp-controller="Wedding">View All Weddings</a>
+<a asp-action="Logout" asp-controller="LoginReg">Logout</a><br>
+<form asp-action="Processwedding" method="POST" asp-controller="Wedding">
+    <input type="hidden" asp-for="Uid" value="@ViewBag.uid">
+    <label asp-for="person1">Wedder 1</label>
+    <input type="text" name="person1">
+    <label asp-for="person2">Wedder 2</label>
+    <input type="text" name="person2">
+    <label asp-for="date">When is it?</label>
+    <input type="date" name="date">
+    <label asp-for="address">Address</label>
+    <input type="text" name="address"><br>
+    <input type="submit">
+</form>

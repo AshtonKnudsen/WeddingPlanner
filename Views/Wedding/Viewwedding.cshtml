@@ -1,0 +1,18 @@
+@using WeddingPlanner.Models;
+@model Wedding;
+
+<h1>@ViewBag.wedding.person1 and @ViewBag.wedding.person2 's Wedding details </h1>
+
+<h4>Date :@ViewBag.wedding.date</h4><br>
+<h4>Venue: @ViewBag.wedding.address</h4>
+<a asp-action="Logout" asp-controller="LoginReg"><button>Logout</button></a>
+<a asp-action="Allweddings"><button>All Weddings</button></a>
+<p>People Going: @Model.RSVPS.Count</p>
+<div style="border: 2px solid Black; width: 30%; padding:10px;">
+    <h6>Guests attending</h6>
+    @foreach(var user in Model.RSVPS)
+{
+    <p><span style="color:rgb(55, 105, 128)"> >> </span> @user.user.firstname  @user.user.lastname</p>
+}
+</div>
+
